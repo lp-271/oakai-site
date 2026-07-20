@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Text ShortCuts Barber Shop — Book an Appointment</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, Segoe UI, Arial, sans-serif; background: #f5f0e8; color: #2a2018; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 20px; }
+  .card { background: white; border-radius: 16px; padding: 40px 32px; max-width: 480px; width: 100%; box-shadow: 0 4px 24px rgba(0,0,0,0.08); text-align: center; }
+  .logo { font-size: 48px; margin-bottom: 16px; }
+  h1 { font-size: 24px; font-weight: 600; color: #1a1410; margin-bottom: 8px; }
+  .subtitle { font-size: 15px; color: #7a6d5e; margin-bottom: 32px; line-height: 1.5; }
+  .shop-info { background: #f5f0e8; border-radius: 12px; padding: 16px; margin-bottom: 28px; text-align: left; }
+  .shop-info p { font-size: 14px; color: #3a3024; line-height: 1.8; }
+  .shop-info strong { color: #1a1410; }
+  .consent-box { background: #f9f7f4; border: 1px solid #e0d8cc; border-radius: 10px; padding: 16px; margin-bottom: 24px; text-align: left; }
+  .consent-label { display: flex; align-items: flex-start; gap: 12px; cursor: pointer; }
+  .consent-label input[type="checkbox"] { width: 18px; height: 18px; min-width: 18px; margin-top: 2px; cursor: pointer; accent-color: #2d4a2d; }
+  .consent-text { font-size: 13px; color: #3a3024; line-height: 1.6; }
+  .consent-text a { color: #8b4513; }
+  .btn { display: block; width: 100%; background: #2d4a2d; color: white; border: none; border-radius: 12px; padding: 16px; font-size: 16px; font-weight: 600; cursor: pointer; text-decoration: none; transition: background 0.2s, opacity 0.2s; margin-bottom: 12px; }
+  .btn:hover { background: #3d6b3d; }
+  .btn.disabled { opacity: 0.4; pointer-events: none; cursor: not-allowed; }
+  .btn-icon { margin-right: 8px; }
+  .or-divider { text-align: center; color: #9a8d7e; font-size: 13px; margin-bottom: 12px; }
+  .call-btn { display: block; width: 100%; background: white; color: #2d4a2d; border: 2px solid #2d4a2d; border-radius: 12px; padding: 14px; font-size: 15px; font-weight: 600; cursor: pointer; text-decoration: none; transition: background 0.2s; margin-bottom: 24px; }
+  .call-btn:hover { background: #f0f4f0; }
+  .disclosure { font-size: 12px; color: #9a8d7e; line-height: 1.6; border-top: 1px solid #e8e0d4; padding-top: 16px; }
+  .disclosure a { color: #8b4513; }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="logo">💈</div>
+  <h1>ShortCuts Barber Shop</h1>
+  <p class="subtitle">Book an appointment or ask us anything — our AI assistant replies instantly, 7 days a week.</p>
+
+  <div class="shop-info">
+    <p>
+      <strong>📍 Location:</strong> 184 Willey St, Morgantown WV 26505<br>
+      <strong>🕐 Hours:</strong> Mon–Sat 8:30am–5:30pm<br>
+      <strong>📞 Phone:</strong> (304) 292-9497<br>
+      <strong>✂️ Services:</strong> Haircuts, Beard Trims, Kids Cuts, Lineups & More
+    </p>
+  </div>
+
+  <div class="consent-box">
+    <label class="consent-label">
+      <input type="checkbox" id="consentCheck" onchange="toggleButton()">
+      <span class="consent-text">
+        I consent to receive automated SMS text messages from ShortCuts Barber Shop regarding appointments, business information, and follow-up messages. Message frequency varies (typically 2–5 per interaction). Message &amp; data rates may apply. I understand I can reply <strong>STOP</strong> at any time to opt out, or <strong>HELP</strong> for assistance. See <a href="https://oakai.net/terms.html" target="_blank">Terms</a> and <a href="https://oakai.net/privacy.html" target="_blank">Privacy Policy</a>.
+      </span>
+    </label>
+  </div>
+
+  <a href="sms:+13048788526?body=Hi%20ShortCuts!%20I%27d%20like%20to%20book%20an%20appointment." class="btn disabled" id="textBtn">
+    <span class="btn-icon">💬</span> Text Us to Book
+  </a>
+
+  <div class="or-divider">— or —</div>
+
+  <a href="tel:+13042929497" class="call-btn">
+    📞 Call (304) 292-9497
+  </a>
+
+  <div class="disclosure">
+    By tapping "Text Us to Book" and sending the message, you confirm your consent to receive SMS messages from ShortCuts Barber Shop via Oak AI. No mobile information will be shared with third parties for marketing purposes. To opt out at any time, reply <strong>STOP</strong>. For help, reply <strong>HELP</strong> or visit <a href="https://shortcutswv.com" target="_blank">shortcutswv.com</a>.
+    <br><br>
+    <a href="https://oakai.net/privacy.html" target="_blank">Privacy Policy</a> &nbsp;·&nbsp; <a href="https://oakai.net/terms.html" target="_blank">Terms &amp; Conditions</a>
+  </div>
+</div>
+
+<script>
+function toggleButton() {
+  const checkbox = document.getElementById('consentCheck');
+  const btn = document.getElementById('textBtn');
+  if (checkbox.checked) {
+    btn.classList.remove('disabled');
+  } else {
+    btn.classList.add('disabled');
+  }
+}
+</script>
+
+</body>
+</html>
